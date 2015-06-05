@@ -1,0 +1,26 @@
+{
+  "name": "kvapi",
+  "version": "1.0.0",
+  "description": "Key value API example",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mattyod/kvapi.git"
+  },
+  "keywords": [
+    "API"
+  ],
+  "author": "mattyod <mattyod@gmail.com> (http://www.mtod.co.uk/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mattyod/kvapi/issues"
+  },
+  "homepage": "https://github.com/mattyod/kvapi",
+  "dependencies": {
+    "express": "4.12.4",
+    "underscore": "1.8.3"
+  }
+}
