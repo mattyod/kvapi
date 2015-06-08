@@ -4,7 +4,7 @@ var express = require('express'),
 
 var app = express();
 app
-  .use('/documents', documents);
+  .use('/', documents);
 
 app
   .listen(1337)
