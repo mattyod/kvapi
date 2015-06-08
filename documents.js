@@ -1,16 +1,12 @@
 var express = require('express'),
     router = express.Router();
-    getParams = require('./middleware/getparams');
-
-var id = require('./queries/id'),
-    category = require('./queries/category'),
-    addword = require('./modifiers/addword'),
-    addnumber = require('./modifiers/addnumber');
+    getParams = require('./middleware/getparams'),
+    queries = require('./queries'),
+    modifiers = require('./modifiers');
 
 router
   .use(getParams)
-  .get('**/id/:uuid**', id)
-  .get('**/category/:category**', category)
+  .use(queries)
   .use(function (req, res, next) {
     (function doSomethingAsync() {
       res.locals.params.dbresult = 'boomtown';
@@ -18,8 +14,7 @@ router
       next('route');
     })();
   })
-  .get('**/addword/:word**', addword)
-  .get('**/addnumber/:number**', addnumber)
+  .use(modifiers)
   .use(function (req, res, next) {
     res.write('<p>' + res.locals.params.dbresult + '</p>');
     res.write('</html>');

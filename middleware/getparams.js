@@ -8,8 +8,7 @@ router.use(function getParams(req, res, next) {
   });
 
   res.write('<html><h3>' + req.baseUrl + ' endpoint</h3>');
-
-  res.locals.params = _.object(items[1], items[0]);
+  res.locals.params = _.extend(_.object(items[1], items[0]), req.query);
   next('route');
 });
 
